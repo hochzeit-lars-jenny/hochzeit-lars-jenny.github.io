@@ -659,7 +659,8 @@ Engagement Pics
 #eng-pics {
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Scales image to cover container, may crop */
     -moz-transition: all 300ms ease-in-out;
     -o-transition: all 300ms ease-in-out;
     -webkit-transition: all 300ms ease-in-out;
@@ -667,8 +668,11 @@ Engagement Pics
   }
   .img-wrap {
     position: relative;
-    overflow: hidden;
-    border-radius: 4px;
+    width: 100%;
+    height: 200px; /* Fixed height; adjust as needed */
+    overflow: hidden; /* Hide excess image parts */
+    border-radius: 8px; /* Optional: rounded corners for style */
+    margin-bottom: 10px; /* Vertical space between stacked images */
   }
   .img-wrap .overlay {
     position: absolute;
@@ -750,38 +754,51 @@ Embed video
 Google map
 ========================================================================== */
 #map-canvas {
-  height: 500px;
-  width: 100%;
+    height: 500px;
+    width: 100%;
 }
 #map-content-wrapper {
-  position: relative;
-  margin-top: -502px;
-  margin-bottom: 150px;
+    position: relative;
+    margin-top: -150px; /* Reduced to avoid excessive overlap; adjust as needed */
+    margin-bottom: 150px;
 }
 #map-content {
-  margin-top: 40px;
-  padding: 50px 60px;
-  background: #fff;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+    margin-top: 40px;
+    padding: 50px 60px;
+    background: #fff;
+    opacity: 0; /* Hidden by default for toggle effect */
+    visibility: hidden; /* Hidden by default */
+    -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+    transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+}
+#map-content.show { /* Class to show content when toggled */
+    opacity: 1;
+    visibility: visible;
+    margin-top: 20px; /* Slight adjustment when visible */
 }
 #btn-show-content {
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  display: inline-block;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+    padding: 20px;
+    background: #fff;
+    cursor: pointer;
+    display: inline-block;
+    opacity: 1; /* Visible by default; adjust if needed */
+    visibility: visible;
+    -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+    transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
 }
 .toggle-map-content {
-  opacity: 0;
-  visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+.toggle-map-content.show { /* Class to show button if needed */
+    opacity: 1;
+    visibility: visible;
 }
 .pointer-events-none {
-  pointer-events: none;
+    pointer-events: none;
 }
 .pointer-events-auto {
-  pointer-events: auto;
+    pointer-events: auto;
 }
 
 /* ==========================================================================
