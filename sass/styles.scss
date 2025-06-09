@@ -410,6 +410,24 @@ Intro
   text-align: center;
 }
 
+/* Ensure images scale responsively */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Center images on mobile */
+@media (max-width: 767px) {
+    .wp1, .wp2 {
+        display: block;
+        margin: 0 auto 20px auto; /* Center images with spacing */
+        max-width: 80%; /* Prevent overly large images */
+    }
+    #intro p {
+        margin-bottom: 20px; /* Space below text */
+    }
+}
+
 /* ==========================================================================
 Features-stack
 ========================================================================== */
