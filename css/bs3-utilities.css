@@ -1,0 +1,40 @@
+/* Small compatibility utilities to emulate a few Bootstrap 4 helpers
+   (used in the HTML) while keeping Bootstrap 3 as the framework.
+   These only define minimal spacing/flex helpers used in the markup.
+*/
+
+/* Make col-12 behave like a full-width column */
+.col-12 {
+  width: 100%;
+  float: none;
+  display: block;
+}
+
+/* Horizontal padding helpers (approx. Bootstrap 4 spacing scale) */
+.px-1 { padding-left: 4px !important; padding-right: 4px !important; }
+.px-2 { padding-left: 8px !important; padding-right: 8px !important; }
+.px-3 { padding-left: 12px !important; padding-right: 12px !important; }
+
+/* Responsive px-md-5: apply on md and up (>=768px) */
+@media (min-width: 768px) {
+  .px-md-5 { padding-left: 3rem !important; padding-right: 3rem !important; }
+}
+
+/* Margin-x 0 */
+.mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* Make .row.mx-0 neutralize bootstrap negative gutters */
+.row.mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
+.container-fluid.px-0 { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* Simple flex helper to center content horizontally (fallback for non-flex parents) */
+.justify-content-center { display: flex !important; justify-content: center !important; align-items: center !important; }
+
+/* Ensure images in .img-wrap occupy full width without extra whitespace */
+.img-wrap img, .img-wrap { display: block; width: 100%; height: auto; }
+
+/* A tiny tweak: remove default anchor inline gaps inside grid items */
+.gallery-row a { display: block; }
+
+/* Make sure box sizing doesn't create visual gaps */
+.gallery-row [class*="col-"] { box-sizing: border-box; }
