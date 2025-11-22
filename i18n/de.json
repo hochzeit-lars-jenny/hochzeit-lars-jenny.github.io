@@ -25,9 +25,15 @@
   "party_p": "Let's dance!",
   "end_label": "Ende der Veranstaltung",
   "map_header": "Veranstaltungsort",
+  "map_paragraph": "Vor der berühmten Skyline Shanghais hat Jenny ja gesagt, das wollen wir nun mit euch im Herzen von Hamburg feiern! Die Feier findet im Favorite Hammonia am Alsterufer 9 in Hamburg statt.",
   "tips_header": "Tipps",
   "rsvp_header": "Anmeldung",
   "rsvp_paragraph": "Bitte gebt uns bis zum 13.03.2026 Bescheid, ob ihr kommt und ob ihr besondere Ernährungsbedürfnisse habt.",
+  "tips_anreise_p": "Am einfachsten ist die Veranstaltung mit öffentlichen Verkehrsmitteln zu erreichen. Die nächste S-Bahn-Haltestelle ist Dammtor. Von dort gelangt man mit einer Haltestelle zum Hauptbahnhof, wo man alle Möglichkeiten zum Umstieg hat. Vor Ort gibt es begrenzt kostenpflichtige Parkplätze.",
+  "tips_uebernachtung_p": "Wir heiraten zentral in Hamburg, schaut gerne auf den gängigen Plattformen nach Unterkünften, dort ist für jedes Budget etwas bei.",
+  "tips_gifts_p": "Eure Anwesenheit an unserem besonderen Tag ist das größte Geschenk. Wenn ihr uns darüber hinaus eine Freude machen möchtet, würden wir uns – ganz nach chinesischer Tradition – über ein Geldgeschenk in einem Umschlag freuen. In China nennt man das einen „HóngBāo" (红包) – einen roten Umschlag, der Glück und gute Wünsche symbolisiert. Es muss nicht rot sein: legt es bitte in einen Umschlag mit eurem Namen, damit wir uns später bedanken können.",
+  "witnesses_header": "Trauzeugen",
+  "witnesses_paragraph": "Wir freuen uns auf Spiele und Gastbeiträge, würden uns aber freuen, wenn diese mit unseren Trauzeugen Sebastian Schilling und Leonie Finnern abgesprochen sind, damit diese nicht überhandnehmen. Auch für alle weiteren Fragen stehen sie euch zur Verfügung.",
   "lang_button_de": "DE",
   "lang_button_en": "EN"
 }
