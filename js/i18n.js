@@ -5,7 +5,7 @@
    - Exposes window.i18nToggle() to switch languages
 */
 (function(){
-  const DEFAULT = 'en';
+  const DEFAULT = 'de';
   function getLangFromUrl(){ const p = new URLSearchParams(window.location.search).get('lang'); return p; }
   function getSavedLang(){ return localStorage.getItem('site_lang'); }
   function setSavedLang(l){ localStorage.setItem('site_lang', l); }
@@ -58,7 +58,7 @@
     }catch(e){}
   }
   window.i18nToggle = async function(){
-    const cur = getSavedLang() || getLangFromUrl() || (navigator.language||'en').slice(0,2) || DEFAULT;
+    const cur = getSavedLang() || getLangFromUrl() || DEFAULT;
     const next = cur === 'en' ? 'de' : 'en';
     await setLang(next);
   };
@@ -66,7 +66,7 @@
   document.addEventListener('DOMContentLoaded', async function(){
     const param = getLangFromUrl();
     const saved = getSavedLang();
-    let lang = param || saved || (navigator.language||'en').slice(0,2);
+    let lang = param || saved || DEFAULT;
     lang = (lang === 'de') ? 'de' : 'en';
     await setLang(lang);
   });
