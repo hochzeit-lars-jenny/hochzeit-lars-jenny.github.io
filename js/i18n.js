@@ -27,7 +27,7 @@
       return {};
     }
   }
-  function applyTranslations(dict){
+  function applyTranslations(dict, currentLang){
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const key = el.getAttribute('data-i18n');
       if(!key) return;
@@ -39,7 +39,7 @@
     // update lang button label if present
     const btn = document.getElementById('lang-btn');
     if(btn){
-      const cur = (localStorage.getItem('site_lang') || DEFAULT);
+      const cur = currentLang || (localStorage.getItem('site_lang') || DEFAULT);
       // show the language that will be switched TO (so button indicates action)
       btn.innerText = cur === 'en' ? (dict['lang_button_de'] || 'DE') : (dict['lang_button_en'] || 'EN');
     }
@@ -47,7 +47,7 @@
   async function setLang(lang){
     const normalized = (lang === 'de') ? 'de' : 'en';
     const dict = await loadTranslations(normalized);
-    applyTranslations(dict);
+    applyTranslations(dict, normalized);
     setSavedLang(normalized);
     document.documentElement.lang = normalized;
     // update URL param without reload
