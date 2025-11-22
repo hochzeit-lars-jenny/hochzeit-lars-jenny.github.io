@@ -10,11 +10,19 @@
   function getSavedLang(){ return localStorage.getItem('site_lang'); }
   function setSavedLang(l){ localStorage.setItem('site_lang', l); }
   async function loadTranslations(lang){
+    const relPath = 'i18n/' + lang + '.json';
+    const absPath = '/i18n/' + lang + '.json';
     try{
-      const res = await fetch('/i18n/' + lang + '.json');
+      // try relative path first (works when site is hosted under a subpath)
+      let res = await fetch(relPath);
+      if(!res.ok) {
+        // fallback to absolute path
+        res = await fetch(absPath);
+      }
       if(!res.ok) throw new Error('no translation');
       return await res.json();
     } catch(e){
+      console.error('i18n: failed to load', lang, e);
       if(lang !== DEFAULT) return loadTranslations(DEFAULT);
       return {};
     }
@@ -32,6 +40,7 @@
     const btn = document.getElementById('lang-btn');
     if(btn){
       const cur = (localStorage.getItem('site_lang') || DEFAULT);
+      // show the language that will be switched TO (so button indicates action)
       btn.innerText = cur === 'en' ? (dict['lang_button_de'] || 'DE') : (dict['lang_button_en'] || 'EN');
     }
   }
