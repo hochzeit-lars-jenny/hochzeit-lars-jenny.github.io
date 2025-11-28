@@ -36,12 +36,33 @@
         el.innerHTML = val;
       }
     });
-    // update lang button label if present
+    // update lang button label to show the active language
     const btn = document.getElementById('lang-btn');
     if(btn){
-      const cur = currentLang || (localStorage.getItem('site_lang') || DEFAULT);
-      // show the language that will be switched TO (so button indicates action)
-      btn.innerText = cur === 'en' ? (dict['lang_button_de'] || 'DE') : (dict['lang_button_en'] || 'EN');
+      const active = (currentLang || (localStorage.getItem('site_lang') || DEFAULT));
+      btn.innerText = (active === 'de') ? (dict['lang_button_de'] || 'DE') : (dict['lang_button_en'] || 'EN');
+    }
+    // update visible debug banner so user can see applied language without opening DevTools
+    try{
+      let dbg = document.getElementById('i18n-debug');
+      const activeLang = currentLang || (localStorage.getItem('site_lang') || DEFAULT);
+      if(!dbg){
+        dbg = document.createElement('div');
+        dbg.id = 'i18n-debug';
+        dbg.style.position = 'fixed';
+        dbg.style.right = '8px';
+        dbg.style.bottom = '8px';
+        dbg.style.background = 'rgba(0,0,0,0.7)';
+        dbg.style.color = 'white';
+        dbg.style.padding = '6px 8px';
+        dbg.style.fontSize = '12px';
+        dbg.style.zIndex = '9999';
+        dbg.style.borderRadius = '4px';
+        document.body.appendChild(dbg);
+      }
+      dbg.textContent = `lang: ${activeLang}`;
+    }catch(e){
+      console.error('i18n: failed to update debug banner', e);
     }
   }
   async function setLang(lang){

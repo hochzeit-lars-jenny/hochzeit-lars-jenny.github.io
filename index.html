@@ -256,29 +256,29 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="arrival_label">Ankunft</span> <span class="time" data-i18n="arrival_time">ab 15:30</span></h5>
                     <p data-i18n="arrival_p">Eintreffen der Gäste</p>
                 </div>
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="ceremony_label">Freie Trauung</span> <span class="time" data-i18n="ceremony_time">16:15</span></h5>
                     <p data-i18n="ceremony_p">Wir sagen JA!</p>
                 </div>
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="reception_label">Sektempfang</span> <span class="time" data-i18n="reception_time">17:00</span></h5>
                     <p data-i18n="reception_p">Zu dieser Zeit wollen wir gerne Bilder mit euch machen.</p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="menu_label">Beginn des Hochzeitsmenüs</span> <span class="time" data-i18n="menu_time">18:30</span></h5>
                     <p data-i18n="menu_p">Guten Appetit!</p>
                 </div>
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="party_label">Beginn der Party</span> <span class="time" data-i18n="party_time">21:30</span></h5>
                     <p data-i18n="party_p">Let's dance!</p>
                 </div>
-                <div class="wp3">
+                <div>
                     <h5><span data-i18n="end_label">Ende der Veranstaltung</span> <span class="time" data-i18n="end_time">3:00</span></h5>
                 </div>
             </div>
@@ -385,52 +385,50 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h3 data-i18n="rsvp_header">Anmeldung</h3>
-                <p data-i18n="rsvp_paragraph">Bitte gebt uns bis zum 13.03.2026 Bescheid, ob ihr kommt und ob ihr besondere Ernährungsbedürfnisse habt (z. B. vegan, vegetarisch oder Unverträglichkeiten).</p>
-                <!-- <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Husband/Wife or kids"
-                                                                  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
-                    </div>
-                    <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
-                    </button>
-                </form> -->
+                <p data-i18n="rsvp_paragraph">Bitte gebt uns bis zum 13.03.2026 Bescheid, ob ihr kommt und ob ihr besondere Ernährungsbedürfnisse habt (z. B. vegan, vegetarisch oder Unverträglichkeiten). Füllt das Formular aus oder schreibt uns persönlich an.</p>
+                                <iframe id="rsvp-iframe"
+                                                data-src-de="https://docs.google.com/forms/d/e/1FAIpQLSeER7h7AYSPhsny-d9EJJ1jmB1bRn600QBKRSFIAc4UKizefQ/viewform?embedded=true"
+                                                data-src-en="https://docs.google.com/forms/d/e/1FAIpQLSeee54IaQWoHeimnx1whG2yc9-lA1YXSEyXV-mfJXuiCuQz9A/viewform?embedded=true"
+                                                src="https://docs.google.com/forms/d/e/1FAIpQLSeER7h7AYSPhsny-d9EJJ1jmB1bRn600QBKRSFIAc4UKizefQ/viewform?embedded=true"
+                                                width="640" height="713" frameborder="0" marginheight="0" marginwidth="0">Wird geladen…</iframe>
+                                <script>
+                                    (function(){
+                                        function updateRsvpIframe(){
+                                            var iframe = document.getElementById('rsvp-iframe');
+                                            if(!iframe) return;
+                                            var lang = document.documentElement.lang || 'de';
+                                            var attr = 'data-src-' + (lang === 'de' ? 'de' : 'en');
+                                            var src = iframe.getAttribute(attr) || iframe.getAttribute('src') || '';
+                                            if(src && iframe.getAttribute('src') !== src){
+                                                // replace iframe to force reload
+                                                try{
+                                                    var parent = iframe.parentNode;
+                                                    var newIframe = iframe.cloneNode(false);
+                                                    newIframe.id = iframe.id;
+                                                    newIframe.setAttribute('src', src);
+                                                    // copy sizing attributes
+                                                    if(iframe.getAttribute('width')) newIframe.setAttribute('width', iframe.getAttribute('width'));
+                                                    if(iframe.getAttribute('height')) newIframe.setAttribute('height', iframe.getAttribute('height'));
+                                                    parent.replaceChild(newIframe, iframe);
+                                                }catch(e){
+                                                    // fallback: set src directly
+                                                    iframe.setAttribute('src', src);
+                                                }
+                                            }
+                                        }
+                                        // update initially
+                                        if(document.readyState === 'loading'){
+                                            document.addEventListener('DOMContentLoaded', updateRsvpIframe);
+                                        } else updateRsvpIframe();
+                                        // observe lang attribute changes on <html>
+                                        var obs = new MutationObserver(function(mutations){
+                                            mutations.forEach(function(m){
+                                                if(m.type === 'attributes' && m.attributeName === 'lang') updateRsvpIframe();
+                                            });
+                                        });
+                                        obs.observe(document.documentElement, { attributes: true });
+                                    })();
+                                </script>
             </div>
         </div>
     </div>
