@@ -220,7 +220,6 @@ $(document).ready(function () {
         } else {
             $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
                 .done(function (data) {
-                    console.log(data);
                     if (data.result === "error") {
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
@@ -229,7 +228,6 @@ $(document).ready(function () {
                     }
                 })
                 .fail(function (data) {
-                    console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
         }
