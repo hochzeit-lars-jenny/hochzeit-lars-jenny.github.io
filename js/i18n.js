@@ -36,11 +36,12 @@
         el.innerHTML = val;
       }
     });
-    // update lang button label to show the active language
+    // update lang button label to show the language the button will switch to (target)
     const btn = document.getElementById('lang-btn');
     if(btn){
       const active = (currentLang || (localStorage.getItem('site_lang') || DEFAULT));
-      btn.innerText = (active === 'de') ? (dict['lang_button_de'] || 'DE') : (dict['lang_button_en'] || 'EN');
+      // when active is 'de' the button should show 'EN' (clicking will switch to English)
+      btn.innerText = (active === 'de') ? (dict['lang_button_en'] || 'EN') : (dict['lang_button_de'] || 'DE');
     }
     // debug banner removed: inline iframe-switcher handles RSVP and we avoid on-screen debug elements
   }
