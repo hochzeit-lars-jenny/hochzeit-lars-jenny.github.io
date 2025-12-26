@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="de"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/styles.min.css">
     <link rel="stylesheet" href="css/queries.css">
-    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
@@ -74,17 +74,17 @@
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="#intro">Verlobung</a></li>
+                            <li><a href="#intro" data-i18n="nav_verlobung">Verlobung</a></li>
                             <!-- <li><a href="#events">Events</a></li> -->
-                            <!-- <li><a href="#instagram">Instagram</a></li> -->
-                            <li><a href="#eng-pics">Verlobungsbilder</a></li>
-                            <!-- <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li> -->
+                            <li><a href="#eng-pics" data-i18n="nav_eng_pics">Verlobungsbilder</a></li>
                         </ul>
                         <ul class="member-actions">
-                            <li><a href="#events" class="login">Zeitplan</a></li>
-                            <li><a href="#map" class="login">Veranstaltungsort</a></li>
-                            <li><a href="#tipps" class="login">Tipps</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">Anmeldung</a></li>
+                            <li><a href="#events" class="login" data-i18n="nav_events">Zeitplan</a></li>
+                            <li><a href="#map" class="login" data-i18n="nav_map">Veranstaltungsort</a></li>
+                            <li><a href="#tipps" class="login" data-i18n="nav_tipps">Tipps</a></li>
+                            <li><a href="#trauzeugen" class="login" data-i18n="nav_wit">Trauzeugen</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small" data-i18n="nav_rsvp">Anmeldung</a></li>
+                            <li><a href="javascript:void(0)" id="lang-btn" class="btn-white btn-small" onclick="i18nToggle()" aria-label="Toggle language">DE</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -94,31 +94,15 @@
             </div>
         </header>
     </section>
-    <!-- <div class="container"> -->
-        <!-- <div class="row">
-            <div class="col-md-10">
-                <div class="hero-names">
-                    <img src="img/Lars-Jenny-1-4-2025_2.png" alt="Event Image">
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="row">
-            <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
-            <div class="col-sm-4 hidden-xs"></div>
-        </div>
-    </div> -->
-    <!-- <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div> -->
 </section>
 
 <section id="invitation" class="section-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Wir heiraten!</h3>
-                <p>Am 13. Juni 2026.</p>
-                <p>Genauer gesagt feiern wir vom 13. auf den 14. Juni. Im Chinesischen werden die Ziffern 13 und 14 als “yī sān” (一三) und “yī sì” (一四) ausgesprochen, was ähnlich klingt wie “yī shēng yī shì” (一生一世), eine Redewendung, die “ein Leben lang” oder “für immer” bedeutet.</p>
+                <h3 data-i18n="invitation_h3">Wir heiraten!</h3>
+                <p data-i18n="date_text">Am 13. Juni 2026.</p>
+                <p data-i18n="invitation_paragraph">Genauer gesagt feiern wir vom 13. auf den 14. Juni. Im Chinesischen werden die Ziffern 13 und 14 als “yī sān” (一三) und “yī sì” (一四) ausgesprochen, was ähnlich klingt wie “yī shēng yī shì” (一生一世), eine Redewendung, die “ein Leben lang” oder “für immer” bedeutet.</p>
             </div>
         </div>
     </div>
@@ -128,7 +112,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 class="header">Verlobung</h3>
+                <h3 class="header" data-i18n="header_verlobung">Verlobung</h3>
             </div>
         </div>
         <div class="row">
@@ -140,7 +124,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-12 text-center">
-                <p>
+                <p data-i18n="intro_paragraph">
                     Unsere Verlobung fand in Shanghai am Suzhou Creek  (苏州河) statt, einem Nebenfluss des Huangpu-Fluss (黄浦江). Besonders schön ist, dass es dort deutlich weniger touristisch ist als am Bund selbst, was den Moment noch intimer und besonderer gemacht hat. Lars hat sich bewusst für Shanghai als Verlobungsort entschieden, weil er dort Jennys gesamte Familie kennenlernen durfte und die Gelegenheit nutzen wollte, die Verlobung mit ihnen gemeinsam zu feiern.
                 </p>
             </div>
@@ -160,7 +144,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 class="header">Verlobungsbilder</h3>
+                <h3 class="header" data-i18n="gallery_header">Verlobungsbilder</h3>
             </div>
         </div>
         <div class="row gallery-row">
@@ -267,35 +251,35 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="header">Zeitplan</h3>
+                <h3 class="header" data-i18n="events_header">Zeitplan</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
-                <div class="wp3">
-                    <h5>Ankunft <span class="time">ab 15:30</span></h5>
-                    <p>Eintreffen der Gäste</p>
+                <div>
+                    <h5><span data-i18n="arrival_label">Ankunft</span> <span class="time" data-i18n="arrival_time">ab 15:30</span></h5>
+                    <p data-i18n="arrival_p">Eintreffen der Gäste</p>
                 </div>
-                <div class="wp3">
-                    <h5>Freie Trauung <span class="time">16:15</span></h5>
-                    <p>Wir sagen JA!</p>
+                <div>
+                    <h5><span data-i18n="ceremony_label">Freie Trauung</span> <span class="time" data-i18n="ceremony_time">16:00</span></h5>
+                    <p data-i18n="ceremony_p">Wir sagen JA!</p>
                 </div>
-                <div class="wp3">
-                    <h5>Sektempfang <span class="time">17:00</span></h5>
-                    <p>Zu dieser Zeit wollen wir gerne Bilder mit euch machen.</p>
+                <div>
+                    <h5><span data-i18n="reception_label">Sektempfang</span> <span class="time" data-i18n="reception_time">17:00</span></h5>
+                    <p data-i18n="reception_p">Zu dieser Zeit wollen wir gerne Bilder mit euch machen.</p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
-                <div class="wp3">
-                    <h5>Beginn des Hochzeitsmenüs <span class="time">18:30</span></h5>
-                    <p>Guten Appetit!</p>
+                <div>
+                    <h5><span data-i18n="menu_label">Beginn des Hochzeitsmenüs</span> <span class="time" data-i18n="menu_time">18:30</span></h5>
+                    <p data-i18n="menu_p">Guten Appetit!</p>
                 </div>
-                <div class="wp3">
-                    <h5>Beginn der Party <span class="time">21:30</span></h5>
-                    <p>Let's dance!</p>
+                <div>
+                    <h5><span data-i18n="party_label">Beginn der Party</span> <span class="time" data-i18n="party_time">21:30</span></h5>
+                    <p data-i18n="party_p">Let's dance!</p>
                 </div>
-                <div class="wp3">
-                    <h5>Ende der Veranstaltung <span class="time">3:00</span></h5>
+                <div>
+                    <h5><span data-i18n="end_label">Ende der Veranstaltung</span> <span class="time" data-i18n="end_time">3:00</span></h5>
                 </div>
             </div>
         </div>
@@ -306,9 +290,9 @@
     <!-- Header: Keep in standard container for centered, contained text -->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <h3>Veranstaltungsort</h3>
-                <p>
+                <div class="col-md-12 text-center">
+                <h3 data-i18n="map_header">Veranstaltungsort</h3>
+                <p data-i18n="map_paragraph">
                     Vor der berühmten Skyline Shanghais hat Jenny ja gesagt, das wollen wir nun mit euch im Herzen von Hamburg feiern!
                     Die Feier findet im Favorite Hammonia am Alsterufer 9 in Hamburg statt.
                 </p>
@@ -339,23 +323,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Tipps</h3>
+                <h3 data-i18n="tips_header">Tipps</h3>
 
-                <h4>Anreise</h4>
+                <h4 data-i18n="tips_anreise_title">Anreise</h4>
 
-                    <p>
+                    <p data-i18n="tips_anreise_p">
                         Am einfachsten ist die Veranstaltung mit öffentlichen Verkehrsmitteln zu erreichen. Die nächste S-Bahn-Haltestelle ist Dammtor. Von dort gelangt man mit einer Haltestelle zum Hauptbahnhof, wo man alle Möglichkeiten zum Umstieg hat. Vor Ort gibt es begrenzt kostenpflichtige Parkplätze.
                     </p>
 
-                <h4>Übernachtung</h4>
+                <h4 data-i18n="tips_uebernachtung_title">Übernachtung</h4>
 
-                    <p>
+                    <p data-i18n="tips_uebernachtung_p">
                         Wir heiraten zentral in Hamburg, schaut gerne auf den gängigen Plattformen nach Unterkünften, dort ist für jedes Budget etwas bei.
                     </p>
 
-                <h4>Geschenke</h4>
+                <h4 data-i18n="tips_gifts_title">Geschenke</h4>
 
-                    <p>
+                    <p data-i18n="tips_gifts_p">
                         Eure Anwesenheit an unserem besonderen Tag ist das größte Geschenk.
                         Wenn ihr uns darüber hinaus eine Freude machen möchtet, würden wir uns – ganz nach chinesischer Tradition – über ein Geldgeschenk in einem Umschlag freuen.
                         In China schenkt man zu besonderen Anlässen einen sogenannten „HóngBāo“ (红包) 🧧 – einen roten Umschlag mit Geld, der Glück und gute Wünsche symbolisiert. Auch wenn es bei uns nicht rot sein muss: Wir würden uns freuen, wenn ihr euer Geschenk einfach und persönlich in einem Umschlag überreicht – mit eurem Namen drauf, damit wir uns später ganz herzlich bei euch bedanken können.
@@ -369,9 +353,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Trauzeugen</h3>
-                <p>
-                    Wir freuen uns auf Spiele und Gastbeiträge, würden uns aber freuen, wenn diese mit unseren Trauzeugen Sebastian Schilling und Leonie Finnern abgesprochen sind, damit diese nicht überhandnehmen. Auch für alle weiteren Fragen stehen sie euch zur Verfügung.
+                <h3 data-i18n="witnesses_header">Trauzeugen</h3>
+                <p data-i18n="witnesses_paragraph">
+                    Wir freuen uns auf Spiele und Gastbeiträge, würden uns aber freuen, wenn diese mit unseren Trauzeugen Sebastian Schilling und Leonie Finnern abgesprochen sind, damit diese nicht überhandnehmen. Auch für alle weiteren Fragen stehen sie euch zur Verfügung. Kontaktdaten können bei uns erfragt werden.
                 </p>
             </div>
         </div>
@@ -400,65 +384,64 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Anmeldung</h3>
-                <p>Bitte gebt uns bis zum 13.03.2026 Bescheid, ob ihr kommt und ob ihr besondere Ernährungsbedürfnisse habt (z. B. vegan, vegetarisch oder Unverträglichkeiten).</p>
-                <!-- <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Husband/Wife or kids"
-                                                                  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
-                    </div>
-                    <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
-                    </button>
-                </form> -->
+                <h3 data-i18n="rsvp_header">Anmeldung</h3>
+                <p data-i18n="rsvp_paragraph">Bitte gebt uns bis zum 13.03.2026 Bescheid, ob ihr kommt und ob ihr besondere Ernährungsbedürfnisse habt (z. B. vegan, vegetarisch oder Unverträglichkeiten). Füllt das Formular aus oder schreibt uns persönlich.</p>
+                                <iframe id="rsvp-iframe"
+                                                data-src-de="https://docs.google.com/forms/d/e/1FAIpQLSeER7h7AYSPhsny-d9EJJ1jmB1bRn600QBKRSFIAc4UKizefQ/viewform?embedded=true"
+                                                data-src-en="https://docs.google.com/forms/d/e/1FAIpQLSeee54IaQWoHeimnx1whG2yc9-lA1YXSEyXV-mfJXuiCuQz9A/viewform?embedded=true"
+                                                src="https://docs.google.com/forms/d/e/1FAIpQLSeER7h7AYSPhsny-d9EJJ1jmB1bRn600QBKRSFIAc4UKizefQ/viewform?embedded=true"
+                                                width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Wird geladen…</iframe>
+                                <script>
+                                    (function(){
+                                        function updateRsvpIframe(){
+                                            var iframe = document.getElementById('rsvp-iframe');
+                                            if(!iframe) return;
+                                            var lang = document.documentElement.lang || 'de';
+                                            var attr = 'data-src-' + (lang === 'de' ? 'de' : 'en');
+                                            var src = iframe.getAttribute(attr) || iframe.getAttribute('src') || '';
+                                            if(src && iframe.getAttribute('src') !== src){
+                                                // replace iframe to force reload
+                                                try{
+                                                    var parent = iframe.parentNode;
+                                                    var newIframe = iframe.cloneNode(false);
+                                                    newIframe.id = iframe.id;
+                                                    newIframe.setAttribute('src', src);
+                                                    // copy sizing attributes
+                                                    if(iframe.getAttribute('width')) newIframe.setAttribute('width', iframe.getAttribute('width'));
+                                                    if(iframe.getAttribute('height')) newIframe.setAttribute('height', iframe.getAttribute('height'));
+                                                    parent.replaceChild(newIframe, iframe);
+                                                }catch(e){
+                                                    // fallback: set src directly
+                                                    iframe.setAttribute('src', src);
+                                                }
+                                            }
+                                        }
+                                        // update initially
+                                        if(document.readyState === 'loading'){
+                                            document.addEventListener('DOMContentLoaded', updateRsvpIframe);
+                                        } else updateRsvpIframe();
+                                        // observe lang attribute changes on <html>
+                                        var obs = new MutationObserver(function(mutations){
+                                            mutations.forEach(function(m){
+                                                if(m.type === 'attributes' && m.attributeName === 'lang') updateRsvpIframe();
+                                            });
+                                        });
+                                        obs.observe(document.documentElement, { attributes: true });
+                                    })();
+                                </script>
             </div>
         </div>
     </div>
 </section>
 
 <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
-<script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
 <script src="js/jquery.mb.YTPlayer.min.js"></script>
 <script src="js/vendor/ouical.js"></script>
 <script src="js/scripts.min.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

@@ -364,3 +364,26 @@
         padding-top: 20px;
     }
 }
+
+/* RSVP iframe responsive tweaks */
+#rsvp-iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 800px; /* default desktop/tablet height */
+    border: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+    /* on small phones make the embedded form tall and nearly full viewport */
+    #rsvp-iframe {
+        height: 90vh;
+        max-width: 100%;
+    }
+    /* ensure container spacing isn't large on small screens */
+    .rsvp .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
