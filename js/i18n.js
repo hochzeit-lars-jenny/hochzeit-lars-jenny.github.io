@@ -52,6 +52,16 @@
         flag.style.fontWeight = 'normal';
       }
     });
+    // Apply translated iframe sizing (optional per-language override)
+    try{
+      var rsvpHeight = dict && (dict['rsvp_form_height'] || dict['rsvp_form_height'] === 0 ? dict['rsvp_form_height'] : null);
+      if(rsvpHeight){
+        var iframe = document.getElementById('rsvp-iframe');
+        if(iframe){
+          iframe.setAttribute('height', String(rsvpHeight));
+        }
+      }
+    }catch(e){ /* no-op */ }
     // debug banner removed: inline iframe-switcher handles RSVP and we avoid on-screen debug elements
   }
   async function setLang(lang){
