@@ -3,9 +3,12 @@
    - Applies translations to elements with `data-i18n` attributes
    - Stores choice in localStorage and supports ?lang= in URL
    - Exposes window.i18nToggle() to switch languages
+   - Supports German (de), English (en), and Chinese (zh)
 */
 (function(){
   const DEFAULT = 'de';
+  const LANGS = ['de', 'en', 'zh'];
+  const LANG_EMOJIS = {de: '🇩🇪', en: '🇬🇧', zh: '🇨🇳'};
   function getLangFromUrl(){ const p = new URLSearchParams(window.location.search).get('lang'); return p; }
   function getSavedLang(){ return localStorage.getItem('site_lang'); }
   function setSavedLang(l){ localStorage.setItem('site_lang', l); }
@@ -36,17 +39,34 @@
         el.innerHTML = val;
       }
     });
-    // update lang button label to show the language the button will switch to (target)
-    const btn = document.getElementById('lang-btn');
-    if(btn){
-      const active = (currentLang || (localStorage.getItem('site_lang') || DEFAULT));
-      // when active is 'de' the button should show 'EN' (clicking will switch to English)
-      btn.innerText = (active === 'de') ? (dict['lang_button_en'] || 'EN') : (dict['lang_button_de'] || 'DE');
-    }
+    // update lang button styling: highlight the current language flag
+    const flags = document.querySelectorAll('.lang-flag');
+    const active = (currentLang || (localStorage.getItem('site_lang') || DEFAULT));
+    flags.forEach(flag => {
+      const lang = flag.getAttribute('data-lang');
+      if(lang === active){
+        flag.style.opacity = '1';
+        flag.style.fontWeight = 'bold';
+      } else {
+        flag.style.opacity = '0.5';
+        flag.style.fontWeight = 'normal';
+      }
+    });
+    // Apply translated iframe sizing (optional per-language override)
+    try{
+      var rsvpHeight = dict && (dict['rsvp_form_height'] || dict['rsvp_form_height'] === 0 ? dict['rsvp_form_height'] : null);
+      if(rsvpHeight){
+        var iframe = document.getElementById('rsvp-iframe');
+        if(iframe){
+          iframe.setAttribute('height', String(rsvpHeight));
+        }
+      }
+    }catch(e){ /* no-op */ }
     // debug banner removed: inline iframe-switcher handles RSVP and we avoid on-screen debug elements
   }
   async function setLang(lang){
-    const normalized = (lang === 'de') ? 'de' : 'en';
+    // validate lang against supported languages
+    const normalized = LANGS.includes(lang) ? lang : DEFAULT;
     const dict = await loadTranslations(normalized);
     applyTranslations(dict, normalized);
     setSavedLang(normalized);
@@ -60,15 +80,21 @@
   }
   window.i18nToggle = async function(){
     const cur = getSavedLang() || getLangFromUrl() || DEFAULT;
-    const next = cur === 'en' ? 'de' : 'en';
+    const currentIdx = LANGS.indexOf(cur);
+    const nextIdx = (currentIdx + 1) % LANGS.length;
+    const next = LANGS[nextIdx];
     await setLang(next);
+  };
+  window.i18nSetLang = async function(lang){
+    await setLang(lang);
   };
   // init when DOM is ready
   document.addEventListener('DOMContentLoaded', async function(){
     const param = getLangFromUrl();
     const saved = getSavedLang();
     let lang = param || saved || DEFAULT;
-    lang = (lang === 'de') ? 'de' : 'en';
+    // normalize to valid language
+    if(!LANGS.includes(lang)) lang = DEFAULT;
     await setLang(lang);
   });
 })();
